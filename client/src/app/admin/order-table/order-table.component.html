@@ -13,24 +13,16 @@
         <td colspan="5">There are no orders</td>
       </tr>
       <ng-template ngFor let-o [ngForOf]='getOrders()'>
-        <th>Name</th>
         <tr>
-          <td>{{ o.name }}</td>
+          <th>Name</th>
+          <td> {{ o.name }}</td>
         </tr>
-        <tr>
-          <td>{{ o.postalCode }}</td>
-        </tr>
-        <th>Product</th>
-        <th>Quantity</th>
+        <th>Questions</th>
+        <th>Questions Answers</th>
         <tr *ngFor='let line of o.cart.lines'>
             <td>{{ line.book.name }}</td>
             <td>{{ line.quantity }}</td>
         </tr>
-          <td>
-            <button class="btn btn-warning m-1" (click)='markShipped(o)'>
-              <i class="{{ o.shipped ? 'fas fa-shipping-fast' : 'fas fa-truck' }}"></i> {{ o.shipped ? "Shipped" : "Ship" }}
-            </button>
-          </td>
           <td>
             <button class="btn btn-danger" (click)='delete(o._id)'>
               <i class="fas fa-trash-alt"></i> Delete
@@ -43,20 +35,4 @@
     
     </tbody>
   </table> 
-
-  <!--<table>
-    <tr *ngIf='getOrders().length == 0'>
-      <td colspan="5">There are no orders</td>
-    </tr>
-    <ng-template ngFor let-o [ngForOf]='getOrders()'>
-        <tr>
-            <td>Item</td>
-            <td>{{ o.name }}</td>
-        </tr>
-        <tr >
-            <td>Second Item</td>
-            <td>{{ o.postalCode }}</td>
-        </tr>
-    </ng-template>
-</table> -->
   
